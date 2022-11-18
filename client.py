@@ -13,8 +13,6 @@ currnamespace = "default"
 headers = {"Content-type":"application/yaml",
            "Accept":"application/json"}
 
-authuser = ("C:\\Users\\Tony\\Documents\\filetransfer\\myuser.crt","C:\\Users\\Tony\\Documents\\filetransfer\\myuser.key")
-authadmin = ("C:\\Users\\Tony\\Documents\\filetransfer\\myadmin.crt","C:\\Users\\Tony\\Documents\\filetransfer\\myadmin.key")
 auth = tuple()
 
 def geturl():
