@@ -3,10 +3,14 @@ from os import system
 from os import listdir
 from os import mkdir
 from os import path
+from os import name as os_name
 import yaml
 urllib3.disable_warnings()
-clear = lambda : system('cls')
-
+clear = None
+if os_name == "nt":
+    clear = lambda : system('cls')
+else:
+    clear = lambda : system('clear')
 url = ""
 
 currnamespace = "default"
