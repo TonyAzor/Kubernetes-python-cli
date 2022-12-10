@@ -2,6 +2,7 @@ import json, requests, urllib3
 from os import system
 from os import listdir
 from os import mkdir
+from os import path
 import yaml
 urllib3.disable_warnings()
 clear = lambda : system('cls')
@@ -20,7 +21,7 @@ def geturl():
     clear()
     saved_url = ""
     try: 
-        with open("conf\\url.txt","r") as url_file:
+        with open(path.join("conf","url.txt"),"r") as url_file:
             saved_url = url_file.readline()
     except:
         pass
@@ -30,13 +31,13 @@ def geturl():
     if url[-1] != "/":
         url+="/"
     try:
-        with open("conf\\url.txt","w") as url_file:
+        with open(path.join("conf","url.txt"),"w") as url_file:
             url_file.write(url)
             auth()
     except: 
         try:
             mkdir("conf")
-            with open("conf\\url.txt","w") as url_file:
+            with open(path.join("conf","url.txt"),"w") as url_file:
                 url_file.write(url)
                 auth()
         except Exception as e:
@@ -47,20 +48,20 @@ def geturl():
 def auth():
     global auth
     clear()
-    path = input("Veuillez donner le chemin vers le certificat et sa clé (\"q\" pour quitter): ")
-    if path == "q":
+    certpath = input("Veuillez donner le chemin vers le certificat et sa clé (\"q\" pour quitter): ")
+    if certpath == "q":
         return
     else:
         try:
-            filenames = listdir(path)
+            filenames = listdir(certpath)
             if len(filenames) != 2:
                 input("Le nombre de fichiers dans le dossier n'est pas bon")
                 auth()
             else:
                 if "crt" in filenames[0]:
-                    auth = (path+"\\"+filenames[0],path+"\\"+filenames[1])
+                    auth = (path.join(certpath,filenames[0]),path.join(certpath,filenames[1]))
                 else:
-                    auth = (path+"\\"+filenames[1],path+"\\"+filenames[0])
+                    auth = (path.join(certpath,filenames[1]),path.join(certpath,filenames[0]))
                 menu()
         except Exception as e:
             input(e)
