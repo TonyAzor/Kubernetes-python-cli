@@ -7,9 +7,9 @@ Pour utiliser l'application, deux choix s'offrent à vous, le prmier étant d'ut
 
 Le second est d'exécuter le ficher client.exe dans le dossier dist, il lancera l'application directement sans que vous n'ayer besoin d'installer python et ses packages.
 
-Une fois exécutée, l'application vous demandera l'url de l'api kubernetes (il s'agit dans mon cas de https://<ip-du-master-kube>:6443)
+Une fois exécutée, l'application vous demandera l'url de l'api kubernetes (il s'agit dans mon cas de https://"ip-du-master-kube":6443)
 
-Puis on vous demandera de donner un dossier contanant deux fichier, le certificat de votre utilisateur (au format .crt) ainsi que sa clé (au format .key), pour éviter de devoir entrer tout le chemin, vous pouvez glisser le dossier (son icone pas ce qu'il contient) directement dans l'application et le chemin se copiera tout seul.
+Puis on vous demandera de donner le chemin d'un dossier contanant deux fichier, le certificat de votre utilisateur (au format .crt) ainsi que sa clé (au format .key), pour éviter de devoir entrer tout le chemin, vous pouvez glisser le dossier (son icone pas ce qu'il contient) directement dans l'application et le chemin se copiera tout seul.
 
 ATTENTION : Votre utilisateur doit déjà avoir été créé au préalable dans votre configuration kubernetes. Aussi ses droits influenceront les résultats affichés par l'application ( par exemple ne pas utiliser un compte avec des droit en lecture pour appliquer une configuration, l'application vous dira que vous n'avez pas les droits)
 
@@ -17,7 +17,7 @@ Une fois que vous avez donné le dossier, l'application ce présentera comme cec
 
 Veuillez choisir une option :
                         namespace en cours : default
-1.Name Spaces
+1.Name Spaces                                                                                                                  
 2.Deployment
 3.Pods
 4.Services
